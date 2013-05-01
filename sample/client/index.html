@@ -1,0 +1,16 @@
+<script src="socket.io.js"></script>
+<script>
+    var channel = '7fh4910dk6uj90rtoj41';
+    var endpoint = 'http://localhost:9095';
+    var username = (Math.random() * 15 | 0);
+
+    var socket = io.connect(endpoint);
+    socket.on('connect', function() {
+        console.log('UID: ', username);
+        console.log('Connected to ', endpoint);
+        socket.emit('authorize', username, channel);
+    });
+    socket.on(channel, function(data) {
+        console.log('Get message: ', data);
+    });
+</script>
