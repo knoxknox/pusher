@@ -17,7 +17,34 @@ Receiving messages in the browser is as simple as connecting to the push server 
 3. Navigate to the just copied directory
 4. Install comet server `npm install`
 5. To run comet server just type `node index.js`
-6. To send message run `ruby /sample/ruby/publish.rb`
+
+## Getting started with Pusher
+```ruby
+require 'json'
+require 'net/http'
+
+package = {
+  :meta => {
+    :channel => 'main'
+  },
+  :body => 'hello world'
+}
+# Publish message to channel 'main'
+uri = URI.parse('http://127.0.0.1:9095/')
+Net::HTTP.post_form(uri, :message => JSON.dump(package))
+```
+```javascript
+var host = 'http://127.0.0.1:9095';
+
+var socket = io.connect(host);
+socket.on('connect', function() {
+  // Subscribe JDoe to channel 'main'
+  socket.emit('authorize', 'JDoe', 'main');
+});
+socket.on('main', function(data) {
+  console.log('Received new message: ', data);
+});
+```
 
 ## Supported browsers
 - IE 5.5+
