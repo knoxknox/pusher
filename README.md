@@ -41,8 +41,8 @@ socket.on('connect', function() {
   // Subscribe JDoe to channel 'main'
   socket.emit('authorize', 'JDoe', 'main');
 });
-socket.on('main', function(data) {
-  console.log('Received new message: ', data);
+socket.on('main', function(msg) {
+  console.log('Received new message: ', msg);
 });
 ```
 
