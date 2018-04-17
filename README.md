@@ -2,7 +2,7 @@ pusher
 =================
 
 When you need more interactivity in your web-applications, you think about real-time messaging.
-One of the possible solution is to use a special [Comet](http://goo.gl/Gf0J) server.
+One of the possible solution is to use a special [Comet](http://bit.ly/2H6tpHa) server.
 This allows a web server to push data to a browser, without the browser explicitly requesting it.
 
 Pusher allows you to build awesome live web-applications.
